@@ -3,8 +3,6 @@ package actor;
 import additionalElements.Food;
 import additionalElements.Furniture;
 import enums.EmotionalCondition;
-import interfaces.Eatable;
-import interfaces.Sittable;
 
 public class Shorty extends Actor {
 
