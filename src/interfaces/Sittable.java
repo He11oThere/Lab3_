@@ -1,6 +1,6 @@
-package Interfaces;
+package interfaces;
 
-import AdditionalElements.Furniture;
+import additionalElements.Furniture;
 
 public interface Sittable {
     void sit(Furniture furniture);

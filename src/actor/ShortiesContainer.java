@@ -1,11 +1,12 @@
-package Actor;
+package actor;
 
-import AdditionalElements.Food;
-import AdditionalElements.Furniture;
-import Enums.EmotionalCondition;
+import additionalElements.Food;
+import additionalElements.Furniture;
+import enums.EmotionalCondition;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class ShortiesContainer {
@@ -19,12 +20,28 @@ public class ShortiesContainer {
         this.shortiesList = new ArrayList<>();
     }
 
+    public List<Shorty> getShortiesList() {
+        return shortiesList;
+    }
+
+    public void setShortiesList(List<Shorty> shortiesList) {
+        this.shortiesList = shortiesList;
+    }
+
     public String getWhoIn() {
         return whoIn;
     }
 
+    public void setWhoIn(String whoIn) {
+        this.whoIn = whoIn;
+    }
+
     public String getPersonsDescription() {
         return personsDescription;
+    }
+
+    public void setPersonsDescription(String personsDescription) {
+        this.personsDescription = personsDescription;
     }
 
     public Shorty createShorty(String name, String appearance) {
@@ -112,4 +129,25 @@ public class ShortiesContainer {
         }
     }
 
+    @Override
+    public String toString() {
+        return "ShortiesContainer{" +
+                "shortiesList=" + shortiesList +
+                ", whoIn='" + whoIn + '\'' +
+                ", personsDescription='" + personsDescription + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShortiesContainer that = (ShortiesContainer) o;
+        return Objects.equals(shortiesList, that.shortiesList) && Objects.equals(whoIn, that.whoIn) && Objects.equals(personsDescription, that.personsDescription);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(shortiesList, whoIn, personsDescription);
+    }
 }

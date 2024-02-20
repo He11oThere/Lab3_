@@ -1,4 +1,4 @@
-package Enums;
+package enums;
 
 public enum EmotionalCondition {
     HAPPY("счастливый"), KIND("добрым"), JOYFULL("радостный"), FRIENDLY("приветливо"), SATISFIED("доволен"),

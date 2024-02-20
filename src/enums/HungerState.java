@@ -1,4 +1,4 @@
-package Enums;
+package enums;
 
 public enum HungerState {
     HUNGRY("голоден"), FULL("сытый"), NEUTRAL("не голоден");

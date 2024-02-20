@@ -1,20 +1,20 @@
-import Actor.Actor;
-import Actor.ShortiesContainer;
-import Actor.Shorty;
-import AdditionalElements.Food;
-import AdditionalElements.Furniture;
-import Enums.EmotionalCondition;
-import Enums.HungerState;
-import Enums.TimePoint;
+import actor.Actor;
+import actor.ShortiesContainer;
+import actor.Shorty;
+import additionalElements.Food;
+import additionalElements.Furniture;
+import enums.EmotionalCondition;
+import enums.HungerState;
+import enums.TimePoint;
 
 public class Main {
     public static void main(String[] args) {
-        ShortiesContainer container = new ShortiesContainer("коротышки", " приветливые лица");
+        ShortiesContainer container = new ShortiesContainer("коротышки", "приветливые лица");
         Actor neznaika = new Actor("Незнайка", EmotionalCondition.CALM, HungerState.NEUTRAL);
-        Shorty shorty3 = container.createShorty();
-        Shorty shorty4 = container.createShorty();
+        container.createShorty();
+        container.createShorty(); // добавление двух коротышек в контейнер
         Shorty darkShorty = new Shorty("коротышка", "черненький");
-        Actor waiter = new Actor("Официант", " в черном костюме");
+        Shorty waiter = new Shorty("Официант", "в черном костюме");
         Furniture table = new Furniture("стол");
 
         Food soup = new Food("суп", 1);
@@ -24,7 +24,7 @@ public class Main {
         Food iceCream = new Food("Клубничным мороженным", 1);
         Food dinner = new Food("ужин", 1);
 
-        neznaika.interaction("No Object");
+        neznaika.see(null);
         container.allEat(dinner, " ели ");
         neznaika.remember();
         System.out.print(TimePoint.LONG_AGO.getPoint());
@@ -53,9 +53,10 @@ public class Main {
         neznaika.eat(iceCream, "закусил ");
         System.out.println("");
         neznaika.evaluate(" понравилась", " еда");
-        System.out.print(neznaika.getName() + " " + neznaika.getHungerState());
-        // System.out.print(neznaika.getHungerState());
-        // neznaika.hungerLevel(HungerState.FULL);
+//        System.out.print(neznaika.getName() + " " + neznaika.getHungerState()); // заменил на один метод
+        neznaika.printHungerState();
+//         System.out.print(neznaika.getHungerState());
+//         neznaika.hungerLevel(HungerState.FULL);  // исправил реализацию и добавил в метод
         System.out.print(", поэтому ");
         neznaika.emotion(EmotionalCondition.HAPPY);
         System.out.print(" и ");
@@ -71,7 +72,7 @@ public class Main {
         neznaika.listen("музыку");
         System.out.print(" и ");
         neznaika.lookAt("танцующих");
-        System.out.print(" и ");
+        System.out.print(", и ");
         neznaika.lookAt(container.getWhoIn());
         System.out.print(", которые");
         container.allSit(table);
@@ -79,11 +80,12 @@ public class Main {
         System.out.print(" и");
         container.allLaugth();
         container.allAppearanceDescription();
-        System.out.print(" ");
-        System.out.print(darkShorty.getAppearance() + " ");
-        System.out.print(darkShorty.getName());
+        waiter.setName("коротышка");
+        waiter.setAppearance("черненький");
+        System.out.print(waiter.getAppearance() + " ");
+        System.out.print(waiter.getName());
         System.out.print(", который ");
-        darkShorty.carry(" еду ", neznaika);
-        darkShorty.lookAt(neznaika, EmotionalCondition.FRIENDLY);
+        waiter.carry(" еду ", neznaika);
+        waiter.glanceAt(neznaika, EmotionalCondition.FRIENDLY);
     }
 }

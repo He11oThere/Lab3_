@@ -1,6 +1,6 @@
-package Interfaces;
+package interfaces;
 
-import AdditionalElements.Food;
+import additionalElements.Food;
 
 public interface Eatable {
     void eat(Food food, String action);
