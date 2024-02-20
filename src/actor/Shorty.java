@@ -6,7 +6,7 @@ import enums.EmotionalCondition;
 import interfaces.Eatable;
 import interfaces.Sittable;
 
-public class Shorty extends Actor implements Eatable, Sittable {
+public class Shorty extends Actor {
 
     public Shorty() {
     }
