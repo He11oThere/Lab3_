@@ -1,4 +1,4 @@
-package AdditionalElements;
+package additionalElements;
 
 import java.util.Objects;
 

@@ -1,24 +1,18 @@
-package Actor;
+package actor;
 
-import AdditionalElements.Food;
-import AdditionalElements.Furniture;
-import Enums.EmotionalCondition;
-import Interfaces.Eatable;
-import Interfaces.Sittable;
-import java.util.Random;
+import additionalElements.Food;
+import additionalElements.Furniture;
+import enums.EmotionalCondition;
+import interfaces.Eatable;
+import interfaces.Sittable;
 
 public class Shorty extends Actor implements Eatable, Sittable {
-    private String name;
 
     public Shorty() {
     }
+
     public Shorty(String name, String appearance) {
         super(name, appearance);
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
     }
 
     @Override
@@ -36,7 +30,7 @@ public class Shorty extends Actor implements Eatable, Sittable {
     }
 
     public void talk(String activeSpeakers) {
-        System.out.print(getName() + " разговаривали " + activeSpeakers);
+        System.out.print(getName() + " разговаривал " + activeSpeakers);
     }
 
     public void talk(String activeSpeakers, String who) {
@@ -48,19 +42,23 @@ public class Shorty extends Actor implements Eatable, Sittable {
     }
 
     public void appearanceDescription() {
-        System.out.println("У них были" + getAppearance());
+        System.out.println("У него были " + getAppearance());
     }
 
-    public void appearanceDescription(boolean redactable, String parametr) {
+    public void appearanceDescription(boolean redactable, String parameter) {
         if (redactable) {
-            System.out.println("У них были" + parametr);
+            System.out.println("У них были " + parameter);
         } else {
             appearanceDescription();
         }
     }
 
-    public void lookAt(String object) {
-        System.out.print(getName() + " смотрят на " + object);
+//    public void lookAt(String object) {
+//        System.out.print(getName() + " смотрят на " + object);
+//    }
+
+    public void glanceAt(Actor person, EmotionalCondition emotion) {
+        System.out.print(emotion + " поглядывал на " + person.getName());
     }
 
     public void lookAt(Actor person) {

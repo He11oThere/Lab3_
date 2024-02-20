@@ -1,9 +1,9 @@
-package Enums;
+package enums;
 
 public enum TimePoint {
     LONG_AGO("давно "),
     RIGHT_NOW("Cейчас же "),
-    AFTER( "после чего"),
+    AFTER("после чего"),
     THEN("Потом ");
 
     private String point;
